@@ -3,6 +3,11 @@ const STRONG_ATTACK_VALUe = 17;
 const MONSTER_ATTACK_VALUE = 14;
 const HEAL_VALUE = 20;
 let chosenMaxLife = 100;
+let enteredMaxLife = prompt(`Enter your chosen max life: `, `${chosenMaxLife}`);
+chosenMaxLife = parseInt(enteredMaxLife);
+if (isNaN(chosenMaxLife) || chosenMaxLife <= 0) {
+  chosenMaxLife = 100;
+}
 let currentMonsterHealth = chosenMaxLife;
 let currentPlayerHealth = chosenMaxLife;
 let bounsLife = 1;
@@ -11,7 +16,6 @@ function reset() {
   currentMonsterHealth = chosenMaxLife;
   bounsLife++;
   resetGame(chosenMaxLife);
-
 }
 function damageDealer() {
   let initialPlayerHealth = currentPlayerHealth;
@@ -31,7 +35,7 @@ function damageDealer() {
   } else if (currentMonsterHealth <= 0 && currentPlayerHealth <= 0) {
     alert("even");
   }
-  if (currentMonsterHealth <= 0 || currentPlayerHealth <= 0){
+  if (currentMonsterHealth <= 0 || currentPlayerHealth <= 0) {
     reset();
   }
 }
