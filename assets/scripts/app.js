@@ -6,6 +6,13 @@ let chosenMaxLife = 100;
 let currentMonsterHealth = chosenMaxLife;
 let currentPlayerHealth = chosenMaxLife;
 let bounsLife = 1;
+function reset() {
+  currentPlayerHealth = chosenMaxLife;
+  currentMonsterHealth = chosenMaxLife;
+  bounsLife++;
+  resetGame(chosenMaxLife);
+
+}
 function damageDealer() {
   let initialPlayerHealth = currentPlayerHealth;
   playerDamage = dealPlayerDamage(MONSTER_ATTACK_VALUE);
@@ -23,6 +30,9 @@ function damageDealer() {
     alert(`GAME OVER`);
   } else if (currentMonsterHealth <= 0 && currentPlayerHealth <= 0) {
     alert("even");
+  }
+  if (currentMonsterHealth <= 0 || currentPlayerHealth <= 0){
+    reset();
   }
 }
 function attackMonster(mode) {
